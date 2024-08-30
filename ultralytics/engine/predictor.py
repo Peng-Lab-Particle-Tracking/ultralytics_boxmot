@@ -258,10 +258,7 @@ class BasePredictor:
 
                 # Postprocess
                 with profilers[2]:
-                    if isinstance(self.model, AutoBackend):
-                        self.results = self.postprocess(preds, im, im0s)
-                    else:
-                        self.results = self.model.postprocess(path, preds, im, im0s)
+                    self.results = self.postprocess(preds, im, im0s)
                 self.run_callbacks("on_predict_postprocess_end")
 
                 # Visualize, save, write results
