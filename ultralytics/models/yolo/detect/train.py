@@ -97,7 +97,12 @@ class DetectionTrainer(BaseTrainer):
         Returns:
             (dict): Preprocessed batch with normalized images.
         """
-        batch["img"] = batch["img"].to(self.device, non_blocking=True).float() / 255
+        if batch["img"].dtype == np.uint8:
+            batch["img"] = batch["img"].to(self.device, non_blocking=True).float() / 255
+        elif batch["img"].dtype == np.uint16:
+            batch["img"] = batch["img"].to(self.device, non_blocking=True).float() / (2**16 - 1)
+        else:
+            raise ValueError(f"Unsupported image dtype: {batch['img'].dtype}")
         if self.args.multi_scale:
             imgs = batch["img"]
             sz = (
