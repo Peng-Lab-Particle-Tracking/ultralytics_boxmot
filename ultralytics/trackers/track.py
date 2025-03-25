@@ -75,7 +75,7 @@ def on_predict_postprocess_end(predictor: object, persist: bool = False) -> None
         if not persist and predictor.vid_path[i if is_stream else 0] != vid_path:
             predictor.vid_path[i if is_stream else 0] = vid_path
 
-        det = (result.obb if is_obb else result.boxes.data).cpu().numpy()
+        det = (result.obb.data if is_obb else result.boxes.data).cpu().numpy()
         if len(det) == 0:
             continue
         tracks = tracker.update(det, result.orig_img)
