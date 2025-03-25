@@ -89,7 +89,7 @@ Before diving into the usage instructions, it's important to note that while all
 
         ```bash
         # Export a YOLO11n PyTorch model to TFLite Edge TPU format
-        yolo export model=yolo11n.pt format=edgetpu  # creates 'yolo11n_full_integer_quant_edgetpu.tflite'
+        yolo export model=yolo11n.pt format=edgetpu # creates 'yolo11n_full_integer_quant_edgetpu.tflite'
 
         # Run inference with the exported model
         yolo predict model=yolo11n_full_integer_quant_edgetpu.tflite source='https://ultralytics.com/images/bus.jpg'
@@ -97,10 +97,10 @@ Before diving into the usage instructions, it's important to note that while all
 
 ### Export Arguments
 
-| Argument | Type             | Default   | Description                                                                                                                       |
-| -------- | ---------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `format` | `str`            | `edgetpu` | Target format for the exported model, defining compatibility with various deployment environments.                                |
-| `imgsz`  | `int` or `tuple` | `640`     | Desired image size for the model input. Can be an integer for square images or a tuple `(height, width)` for specific dimensions. |
+| Argument | Type             | Default     | Description                                                                                                                       |
+| -------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `format` | `str`            | `'edgetpu'` | Target format for the exported model, defining compatibility with various deployment environments.                                |
+| `imgsz`  | `int` or `tuple` | `640`       | Desired image size for the model input. Can be an integer for square images or a tuple `(height, width)` for specific dimensions. |
 
 For more details about the export process, visit the [Ultralytics documentation page on exporting](../modes/export.md).
 
@@ -154,7 +154,7 @@ To export a YOLO11 model to TFLite Edge TPU format, you can follow these steps:
 
         ```bash
         # Export a YOLO11n PyTorch model to TFLite Edge TPU format
-        yolo export model=yolo11n.pt format=edgetpu  # creates 'yolo11n_full_integer_quant_edgetpu.tflite'
+        yolo export model=yolo11n.pt format=edgetpu # creates 'yolo11n_full_integer_quant_edgetpu.tflite'
 
         # Run inference with the exported model
         yolo predict model=yolo11n_full_integer_quant_edgetpu.tflite source='https://ultralytics.com/images/bus.jpg'
